@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JagJar</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="icons/icon48.png" alt="JagJar Logo" class="logo">
+      <h1>JagJar</h1>
+    </div>
+    
+    <!-- Logged out state -->
+    <div id="logged-out-view" class="view">
+      <p class="info-text">Sign in to track your time on JagJar-enabled websites.</p>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign In</button>
+      </form>
+      <div class="auth-links">
+        <a href="#" id="create-account-link">Create Account</a>
+        <span>•</span>
+        <a href="#" id="forgot-password-link">Forgot Password?</a>
+      </div>
+    </div>
+    
+    <!-- Logged in state -->
+    <div id="logged-in-view" class="view hidden">
+      <div class="user-info">
+        <p>Welcome, <span id="user-name">User</span></p>
+        <p id="subscription-status">Free Tier</p>
+      </div>
+      
+      <div class="time-info">
+        <div class="time-box">
+          <h2>Today</h2>
+          <p id="today-time">0h 0m</p>
+        </div>
+        <div class="time-box">
+          <h2>This Month</h2>
+          <p id="month-time">0h 0m</p>
+        </div>
+      </div>
+      
+      <div id="free-tier-progress" class="progress-container">
+        <p>Monthly Limit: <span id="limit-usage">0</span> / <span id="limit-total">8</span> hours</p>
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+      
+      <div id="premium-badge" class="premium-badge hidden">
+        <span class="badge">Premium</span>
+        <p>Unlimited Access</p>
+      </div>
+      
+      <div id="site-status" class="site-status">
+        <p class="status-text">Current site: <span id="current-site-status">Not a JagJar site</span></p>
+      </div>
+      
+      <div class="action-buttons">
+        <button id="view-dashboard-btn" class="btn btn-secondary">Dashboard</button>
+        <button id="upgrade-btn" class="btn btn-primary">Upgrade</button>
+        <button id="logout-btn" class="btn btn-outline">Sign Out</button>
+      </div>
+    </div>
+    
+    <!-- Loading state -->
+    <div id="loading-view" class="view">
+      <div class="loader"></div>
+      <p>Loading...</p>
+    </div>
+    
+    <!-- Error state -->
+    <div id="error-view" class="view hidden">
+      <p class="error-text" id="error-message">Something went wrong. Please try again.</p>
+      <button id="retry-btn" class="btn btn-primary">Retry</button>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
